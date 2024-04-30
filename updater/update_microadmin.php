@@ -29,7 +29,10 @@ $zip->close();
 
 unlink(UPDATE_FILE);
 
-rrmdir(TARGET_DIR);
+if (file_exists(TARGET_DIR)) {
+	rrmdir(TARGET_DIR);
+}
+
 rename(NESTED_DIR, TARGET_DIR);
 
 exit;
